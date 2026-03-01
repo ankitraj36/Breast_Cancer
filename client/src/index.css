@@ -1,0 +1,123 @@
+/* ─── Breast Cancer Awareness — Global Styles ─────────── */
+:root {
+  --pink-primary: #FF69B4;
+  --pink-secondary: #FFC0CB;
+  --pink-bg: #F8BBD0;
+  --pink-light: #FCE4EC;
+  --pink-deep: #E91E90;
+  --pink-dark: #C2185B;
+  --pink-gradient: linear-gradient(135deg, #FF69B4, #FF1493, #E91E90);
+  --pink-gradient-soft: linear-gradient(135deg, #FFC0CB, #FF69B4);
+  --pink-gradient-bg: linear-gradient(180deg, #fff 0%, #FCE4EC 50%, #F8BBD0 100%);
+  --white: #ffffff;
+  --dark: #2D2D2D;
+  --text: #333333;
+  --text-light: #666666;
+  --text-muted: #999999;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 105, 180, 0.2);
+  --shadow-sm: 0 2px 8px rgba(255, 105, 180, 0.1);
+  --shadow-md: 0 4px 20px rgba(255, 105, 180, 0.15);
+  --shadow-lg: 0 8px 40px rgba(255, 105, 180, 0.2);
+  --shadow-xl: 0 16px 60px rgba(255, 105, 180, 0.25);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --font: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: var(--font);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: var(--transition);
+}
+
+input, textarea, select {
+  font-family: var(--font);
+  outline: none;
+  border: none;
+  transition: var(--transition);
+}
+
+/* ─── Scrollbar ────────────────────────────────────────── */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--pink-light); }
+::-webkit-scrollbar-thumb {
+  background: var(--pink-primary);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pink-deep);
+}
+
+/* ─── Scroll Reveal Animation ──────────────────────────── */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Accessibility ────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+:focus-visible {
+  outline: 3px solid var(--pink-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
