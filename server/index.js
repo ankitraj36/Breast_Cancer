@@ -35,8 +35,13 @@ if (process.env.NODE_ENV === 'production') {
     });
 }
 
-// ─── Start Server ────────────────────────────────────────
-app.listen(PORT, () => {
-    console.log(`\n🎀 Breast Cancer Awareness Server running on port ${PORT}`);
-    console.log(`   API: http://localhost:${PORT}/api/health\n`);
-});
+// ─── Start Server (local dev only, Vercel uses the export) ──
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`\n🎀 Breast Cancer Awareness Server running on port ${PORT}`);
+        console.log(`   API: http://localhost:${PORT}/api/health\n`);
+    });
+}
+
+// Export for Vercel serverless
+module.exports = app;
