@@ -27,13 +27,8 @@ app.get('/api/health', (req, res) => {
     res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
-// ─── Serve React in Production ───────────────────────────
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
-    app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname, '..', 'client', 'dist', 'index.html'));
-    });
-}
+// Note: In production on Vercel, static files are served by Vercel's CDN,
+// not by Express. The api/index.js entry handles only /api/* routes.
 
 // ─── Start Server (local dev only, Vercel uses the export) ──
 if (process.env.NODE_ENV !== 'production') {
